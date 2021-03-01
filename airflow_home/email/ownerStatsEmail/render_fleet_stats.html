@@ -1,0 +1,244 @@
+{% extends '/Users/johnokeefe/Boatsetter/analytics/airflow_workspace/airflow_home/email/ownerStatsEmail/owner_stats_template.html' %}
+{% block content %}
+<tr>
+<td align="center" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+<tr>
+<td align="center" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top">
+<h1 style="font-family:Helvetica,Arial,sans-serif;font-size:30px;line-height:40px;color:#0e729f;text-align:center;font-weight:300;margin: 0">
+Your {{ header_month }} Fleet Report
+</h1>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<h2 style="font-family:Helvetica,Arial,sans-serif;font-size:18px;line-height:28px;color:#362e2f;text-align:center;font-weight:600;margin: 0">
+See how well you performed in {{ header_month }}.
+</h2>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr bgcolor="#ffffff">
+<td height="40px"></td>
+</tr>
+<table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;background-color: #FFFFFF">
+{% for boat in boat_list %}
+<!-- BOAT 1 STARTS-->
+<tr>
+<td align="center" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+<tr>
+<td align="center" valign="top">
+<table width="230px" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top" style="padding: 20px 0 0 0"><img src="{{ boat[11] }}" class="banner" width="100%"  alt="Boat" style="display:block; margin: 0 auto 20px auto"/></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<table width="230px" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td colspan="2" align="center" valign="top" style="padding:8px 0;font-family: 'Open Sans', sans-serif;font-size:18px;line-height:20px;color:#0e729f;font-weight:500;">
+    <img src="https://bs-evergage.s3.amazonaws.com/icon-boat.png">
+    <br>
+    <br>
+    Boat Performance
+    <br>
+  </td>
+</tr>
+<tr>
+<td align="left" valign="top" style="padding:8px 0;font-family:Helvetica,Arial,sans-serif;font-size:16.5px;line-height:14px;color:#727272;font-weight:300;">
+Views
+</td>
+<td align="right" valign="top" style="padding:8px 0; font-family: Helvetica,Arial,sans-serif;font-size:16.5px;line-height:14px; color:#727272;font-weight:400;">
+{{ boat[1] }}
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:300;">
+Opportunities
+</td>
+<td align="right" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:400;">
+{{ boat[2] }}
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:300;">
+Rentals
+</td>
+<td align="right" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:400;">
+{{ boat[3] }}
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:300;">
+Income lost<br><span style="font-size:10.5px;">(to other owners)</span>
+</td>
+<td align="right" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#d62727;font-weight:400;">
+{{ boat[5] }}
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" style="padding: 30px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:600;">
+Total income
+</td>
+<td align="right" valign="top" style="padding: 30px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#429209;font-weight:400;">
+{{ boat[4] }}
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Pro Tips Data -->
+<tr>
+<td align="left" valign="top" style="padding:8px 0;font-family: 'Open Sans', sans-serif;font-size:18px;line-height:20px;color:#0e729f;font-weight:500;text-align: center">
+<br>
+<img src="https://bs-evergage.s3.amazonaws.com/protips.png">
+<br>
+<br>
+Factors to increase conversions
+<br>
+<br>
+<span style="font-weight:400; color: #727272;font-size: 15px">See how you're performing compared to other boats in your area.</span>
+<br>
+<br>
+<table width="90%" border="0" cellspacing="0" cellpadding="0" style="margin:15px auto;text-align:left; border-top: #CCCCCC solid 1px;">
+<tr>
+
+  <td style="padding: 0; text-align: right;">
+  </td>
+  <td colspan="2" style="color:#727272; text-align: center; padding: 0;font-size: 12px">
+    How you're doing
+  </td>
+</tr>
+<tr>
+
+  <td style="border-bottom: #CCCCCC solid 1px; padding: 10px 5px;">
+    <span style="font-family: 'Open Sans', sans-serif;font-size:14.5px; line-height: 18px; color:#727272;font-weight:400;">
+      Respond to every inquiry as fast as possible.
+    </span>
+  </td>
+  <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px; text-align: right;">
+    {% if boat[9] == '2' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/GREEN_01.png" style="vertical-align: middle;">
+    {% elif boat[9] == '1' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+    {% elif boat[9] == '0' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/RED.png" style="vertical-align: middle;">
+    {% else %}
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+    {% endif %}
+  </td>
+  <!-- <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px; text-align: right;">
+    <img src="images/green_arrow.png" style="vertical-align: middle;">
+  </td> -->
+</tr>
+<tr>
+
+  <td style="border-bottom: #CCCCCC solid 1px; padding: 10px 5px;">
+    <span style="font-family: 'Open Sans', sans-serif;font-size:14.5px; line-height: 18px; color:#727272;font-weight:400;">
+      Make your boat instant-bookable.
+    </span>
+  </td>
+  <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px; text-align: right;">
+    {% if boat[7] == '2' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/GREEN_01.png" style="vertical-align: middle;">
+    {% elif boat[7] == '1' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+    {% elif boat[7] == '0' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/RED.png" style="vertical-align: middle;">
+    {% else %}
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+    {% endif %}
+  </td>
+  <!-- <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px; text-align: right;">
+    <img src="images/red_arrow.png" style="vertical-align: middle;">
+  </td> -->
+</tr>
+<tr>
+
+  <td style="border-bottom: #CCCCCC solid 1px; padding: 10px 5px;">
+    <span style="font-family: 'Open Sans', sans-serif;font-size:14.5px; line-height: 18px; color:#727272;font-weight:400;">
+      Remind all renters to leave a review.
+    </span>
+  </td>
+  <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px; text-align: right;">
+    {% if boat[8] == '2' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/GREEN_01.png" style="vertical-align: middle;">
+    {% elif boat[8] == '1' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+    {% elif boat[8] == '0' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/RED.png" style="vertical-align: middle;">
+    {% else %}
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+    {% endif %}
+  </td>
+  <!-- <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px; text-align: right;">
+    <img src="images/green_arrow.png" style="vertical-align: middle;">
+  </td> -->
+</tr>
+<tr>
+
+  <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px;">
+    <span style="font-family: 'Open Sans', sans-serif;font-size:14.5px; line-height: 18px; color:#727272;font-weight:400;">
+      Convert more inquiries to rentals.
+    </span>
+  </td>
+  <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px; text-align: right;">
+    {% if boat[6] == '2' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/GREEN_01.png" style="vertical-align: middle;">
+    {% elif boat[6] == '1' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+    {% elif boat[6] == '0' %}
+    <img src="https://bs-evergage.s3.amazonaws.com/RED.png" style="vertical-align: middle;">
+    {% else %}
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+    {% endif %}
+  </td>
+  <!-- <td style="border-bottom: #CCCCCC solid 1px;padding: 10px 5px; text-align: right;">
+    <img src="images/gray_arrow.png" style="vertical-align: middle;">
+  </td> -->
+</tr>
+ <tr>
+
+  <td style=" padding: 10px 5px;">
+    <span style="font-family: 'Open Sans', sans-serif;font-size:14.5px; line-height: 18px; color:#727272;font-weight:400;">
+      Reach out to previous renters to get them to re-book.
+    </span>
+  </td>
+  <td style="padding: 10px 5px; text-align: right;">
+    <img src="https://bs-evergage.s3.amazonaws.com/YELLOW.png" style="vertical-align: middle;">
+  </td>
+   <!-- <td style="padding: 10px 5px; text-align: right;">
+    <img src="images/gray_arrow.png" style="vertical-align: middle;">
+  </td> -->
+</tr>
+</table>
+
+</td>
+</tr>
+
+<td align="center" style="padding: 15px 0;" colspan="2">
+<a href="https://discover.boatsetter.com/blog/top-boatsetter-owner/?utm_source=newsletter&utm_medium=email&utm_campaign={{ header_month }}_fleet_statistics&utm_term=bt_{{ boat[10] }}" style="display: block; font-family:Helvetica, Arial, sans-serif;font-size:14.5px;line-height:1;text-align:center;color:#0e729f;  margin-top:15px;">Learn More About Pro Tips</a>
+</td>
+<tr>
+<td colspan="3" align="center">
+<a href="https://www.boatsetter.com/boats/{{ boat[10] }}/edit?utm_source=newsletter&utm_medium=email&utm_campaign={{ header_month }}_fleet_statistics&utm_term=bt_{{ boat[10] }}" style="background-color: #ffa405; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; padding:12px 20px;line-height:1;text-align: center;display: block; color: white; border-radius:4px; width: 50%; margin-bottom:30px;">Update my boat</a>
+</td>
+</tr>
+</td>
+</tr>
+
+{% endfor %}
+</table>
+{% endblock %}

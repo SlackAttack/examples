@@ -1,0 +1,163 @@
+{% extends '/home/ubuntu/analytics/airflow_workspace/airflow_home/email/owner_stats_template.html' %}
+{% block content %}
+<tr>
+  <td align="center" valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+      <tr>
+        <td align="center" valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="center" valign="top">
+                <h1 style="font-family:Helvetica,Arial,sans-serif;font-size:30px;line-height:40px;color:#0e729f;text-align:center;font-weight:300;margin: 0">
+                  Your {{ header_month }} Fleet Report
+                </h1>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <h2 style="font-family:Helvetica,Arial,sans-serif;font-size:18px;line-height:28px;color:#362e2f;text-align:center;font-weight:600;margin: 0">
+                  See how well you performed this month.
+                </h2>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr bgcolor="#ffffff">
+  <td height="40px"></td>
+</tr>
+{% for boat in boat_list %}
+<!-- BOAT 1 STARTS-->
+<tr>
+  <td align="center" valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+      <tr>
+        <td align="center" valign="top">
+          <table width="230px" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="center" valign="top" style="padding: 20px 0 0 0"><img src="{{ boat[3] }}" class="banner" width="100%"  alt="Boat" style="display:block; margin: 0 auto 20px auto"/></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" valign="top">
+          <table width="230px" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="left" valign="top" style="padding:8px 0;font-family:Helvetica,Arial,sans-serif;font-size:16.5px;line-height:14px;color:#727272;font-weight:300;">
+                Views
+              </td>
+              <td align="right" valign="top" style="padding:8px 0; font-family: Helvetica,Arial,sans-serif;font-size:16.5px;line-height:14px; color:#727272;font-weight:400;">
+                {{ boat[5] }}
+              </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:300;">
+                Opportunities
+              </td>
+              <td align="right" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:400;">
+                {{ boat[6] }}
+              </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:300;">
+                Rentals
+              </td>
+              <td align="right" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:400;">
+                {{ boat[7] }}
+              </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:300;">
+                Income lost<br><span style="font-size:10.5px;">(to other owners)</span>
+              </td>
+              <td align="right" valign="top" style="padding: 8px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#d62727;font-weight:400;">
+                {{ boat[9] }}
+              </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" style="padding: 30px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#727272;font-weight:600;">
+                Total income
+              </td>
+              <td align="right" valign="top" style="padding: 30px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; line-height: 14px; color:#429209;font-weight:400;">
+                {{ boat[8] }}
+              </td>
+            </tr>
+            {% if boat[11] == True %}
+            <tr>
+              <td colspan="2" align="left" valign="top" style="padding: 20px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; color:#0e729f; font-weight:600; border-top: 1px solid #CCCCCC;">
+                Pro Tip:
+                <br>
+              <span style="font-family: Helvetica, Arial, sans-serif;font-size:14.5px; line-height: 18x; color:#727272;font-weight:400;">
+                <br>
+                Increase search score to get more views!
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 15px 0;" colspan="2">
+                <a href="https://boatbound.zendesk.com/hc/en-us/articles/360025537072-How-to-Increase-Your-Search-Score?utm_source=newsletter&utm_medium=email&utm_campaign={{ header_month }}_fleet_statistics&utm_term=bt_{{ boat[10] }}" style="display: block; font-family:Helvetica, Arial, sans-serif;font-size:14.5px;line-height:1;text-align:center;color:#0e729f;">Get more views</a>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <a href="https://www.boatsetter.com/boats/{{ boat[10] }}/edit?utm_source=newsletter&utm_medium=email&utm_campaign={{ header_month }}_fleet_statistics&utm_term=bt_{{ boat[10] }}" style="background-color: #ffa405; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; padding:12px 20px;line-height:1;text-align: center;display: block; color: white; border-radius:4px;">Update my boat</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+            {% elif boat[12] == True %}
+            <tr>
+              <td colspan="2" align="left" valign="top" style="padding: 20px 0; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; color:#0e729f; font-weight:600; border-top: 1px solid #CCCCCC;">
+                Pro Tip:
+                <br>
+              <span style="font-family: Helvetica, Arial, sans-serif;font-size:14.5px; line-height: 18x; color:#727272;font-weight:400;">
+                <br>
+                Improve boat listing to get more opportunities!
+              </span>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 15px 0;" colspan="2">
+                <a href="https://boatbound.zendesk.com/hc/en-us/articles/360025831971-How-to-Improve-Your-Listing?utm_source=newsletter&utm_medium=email&utm_campaign={{ header_month }}_fleet_statistics&utm_term=bt_{{ boat[10] }}" style="display: block;font-family:Helvetica, Arial, sans-serif;font-size:14.5px;line-height:1;text-align:center;color:#0e729f;">Improve Your Listing</a>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <a href="https://www.boatsetter.com/boats/{{ boat[10] }}/edit?utm_source=newsletter&utm_medium=email&utm_campaign={{ header_month }}_fleet_statistics&utm_term=bt_{{ boat[10] }}" style="background-color: #ffa405; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; padding:12px 20px;line-height:1;text-align: center;display: block; color: white; border-radius:4px;">Update my boat</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+            {% else %}
+            <tr>
+              <td colspan="2">
+                <a href="https://www.boatsetter.com/boats/{{ boat[10] }}/edit?utm_source=newsletter&utm_medium=email&utm_campaign={{ header_month }}_fleet_statistics&utm_term=bt_{{ boat[10] }}" style="background-color: #ffa405; font-family: Helvetica, Arial, sans-serif;font-size:16.5px; padding:12px 20px;line-height:1;text-align: center;display: block; color: white; border-radius:4px;">Update my boat</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+            {% endif %}
+      <tr>
+         <td height="26"></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td align="center">
+            <span style="display:block;height:2px;width:80%;background-color:#eaeaea;"></span>
+         </td>
+         <td></td>
+      </tr>
+      <tr>
+         <td height="26"></td>
+      </tr>
+   </tbody>
+</table>
+{% endfor %}
+{% endblock %}
